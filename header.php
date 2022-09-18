@@ -18,7 +18,7 @@
 require_once "conn.php";  ?>
 
 
-<div class="container" >
+<div class="container" style="padding-top:50px;" >
   <h1><a href="index.php" >SQL Injection Test</a></h1>
 <hr/>
   

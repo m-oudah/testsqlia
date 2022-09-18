@@ -14,20 +14,21 @@ require_once 'header.php';
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
 
-        $name = trim($_POST["n"]);
+        $fname = trim($_POST["fname"]);
         $course = trim($_POST["course"]);
         $mob = trim($_POST["mobile"]);
         $em = trim($_POST["em"]);
 
         // Prepare an insert statement
        // $sql = "INSERT INTO users (username, password) VALUES (?, ?)";
-        $sql = "INSERT INTO registertb (stName, course, mobile, email) VALUES ('$name','$course', '$mob', '$em')";
+        $sql = "INSERT INTO registertb (stName, course, mobile, email) VALUES ('$fname','$course', '$mob', '$em')";
                 
         if($stmt = mysqli_prepare($link, $sql)){
                     
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 // Redirect to login page
+                echo "<br> Data inserted";
               //  header("location: index.php");
             } else{
                 echo "Something went wrong. Please try again later.";
@@ -44,7 +45,7 @@ require_once 'header.php';
 
 
 ?>
-
+<div style="padding-top:20px; width:80%;" >
 		<h3> COURSE REGISTERATION - (POST) METHOD</h3>
 	
 		<form  action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>"  method="POST">
@@ -52,18 +53,18 @@ require_once 'header.php';
 
         <div class="form-group">
                 <label>Full Name</label>
-                <input type="text" name="n" class="form-control" required>
+                <input type="text" name="fname" class="form-control" required>
         </div>    
 
 
         <div class="form-group">
                 <label>MOBILE NO.</label>
-                <input type="text" name="mobile" class="form-control" required>
+                <input type="number" name="mobile" class="form-control" required>
         </div>  
 
         <div class="form-group">
                 <label>EMAIL</label>
-                <input type="text" name="em" class="form-control" required>
+                <input type="email" name="em" class="form-control" required>
         </div>  
 
         
