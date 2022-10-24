@@ -25,6 +25,15 @@ $sql = "INSERT INTO registertb (Name, course, mobile, phone, email ,dateofbirth,
 $sql = "INSERT INTO registertb (stName, course, mobile, email) VALUES ('$fname','$course', '$mob', '$em')";
 //$sql = "Select * from registertb where stID=".$name;
 
+$arr = $_GET;
+$json = json_encode($arr, true);
+$data = json_decode($json);
+
+echo '<br/>Json Request:<br/>'.$json;
+
+
+
+
 if (mysqli_query($connection,$sql)) {
     echo "<br> Data inserted";
   //  header("location: course-register-get.php");
